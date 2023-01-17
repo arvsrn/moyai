@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+
+    font-family: Inter;
+}
+
+.light {
+    --gray1: #FCFCFC;
+    --gray2: #F8F8F8;
+    --gray3: #F3F3F3;
+    --gray4: #EDEDED;
+    --gray5: #E8E8E8;
+    --gray6: #E2E2E2;
+    --gray7: #DBDBDB;
+    --gray8: #C7C7C7;
+    --gray9: #8F8F8F;
+    --gray10: #858585;
+    --gray11: #6F6F6F; 
+    --gray12: #171717;
+}
+
+.dark {
+    --gray1: #161616;
+    --gray2: #1C1C1C;
+    --gray3: #232323;
+    --gray4: #282828;
+    --gray5: #2E2E2E;
+    --gray6: #343434;
+    --gray7: #3E3E3E;
+    --gray8: #505050;
+    --gray9: #707070;
+    --gray10: #7E7E7E;
+    --gray11: #A0A0A0;
+    --gray12: #EDEDED;
+}
+
+::selection {
+    background-color: rgba(24, 145, 251, 0.2);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+  
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray9);
+}
