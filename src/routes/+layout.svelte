@@ -29,9 +29,11 @@
 
 <slot></slot>
 
+<!--
 <footer>
     <p>Made with 💖 by <span>Aarav</span>.</p>
 </footer>
+-->
 
 <style>
     footer {
