@@ -5,9 +5,10 @@
     export let text: string, shortcut: string = "";
     export let hovering: boolean = false, hasMenu: boolean = false;
     export let style: string = "";
+    export let handler: () => void;
 </script>
 
-<main on:mouseenter={() => hovering = true} on:mouseleave={() => hovering = false} {style}>
+<main on:mouseenter={() => hovering = true} on:mouseleave={() => hovering = false} {style} on:click={handler}>
     <slot></slot>
     {text} 
     <span>

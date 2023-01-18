@@ -1,11 +1,6 @@
 <script lang="ts">
-    import Authenticate from '../Authenticate.svelte';
-    import Blanket from '../Blanket.svelte';
     import NewPost from '../NewPost.svelte';
     import Post from '../Post.svelte';
-    import Settings from '../EditProfile.svelte';
-
-    let show: boolean = true;
 </script>
 
 <main>
@@ -21,12 +16,6 @@
     <Authenticate></Authenticate>
 </Blanket>
 -->
-
-{#if show}
-<Blanket bind:toggle={show}>
-    <Settings></Settings>
-</Blanket>
-{/if}
 
 <style>
     main {

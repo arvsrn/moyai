@@ -42,9 +42,10 @@
         {#if showingMenu}
         <div style="position: absolute; right: 0px; top: 34px;">
             <Menu onclose={() => showingMenu = false} >
-                <MenuOption text="Profile"></MenuOption>
-                <MenuOption text="Settings"></MenuOption>
-                <MenuOption text="Log out"></MenuOption>
+                <MenuOption text="Profile" handler={() => {
+                    window.location.assign('/u/amogus');
+                }}></MenuOption>
+                <MenuOption text="Log out" handler={() => {}}></MenuOption>
             </Menu>
         </div>
         {/if}

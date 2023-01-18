@@ -5,7 +5,7 @@
     export let style: string = "";
 </script>
 
-<main on:click|self={() => toggle = false} transition:fade={{ duration: 50 }} on:keydown={() => { /* to get a11y to shut up */ }} {style}>
+<main on:click|self={() => toggle = false} transition:fade={{ duration: 80 }} on:keydown={() => { /* to get a11y to shut up */ }} {style}>
     <slot></slot>
 </main>
 

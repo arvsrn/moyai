@@ -1,7 +1,9 @@
 <script lang="ts">
     import { clickOutside } from "svelte-use-click-outside";
+    import { slide } from "svelte/transition";
     import Menu from "./Menu.svelte";
     import MenuOption from "./MenuOption.svelte";
+    import Tooltip from "./Tooltip.svelte";
 
     let showMenu: boolean = false;
     let mousePosition: number[] = [0, 0];
@@ -10,21 +12,26 @@
 <main>
     {#if showMenu}
     <Menu onclose={() => showMenu = false} style="position: absolute; left: {mousePosition[0]}px; top: {mousePosition[1]}px;">
-        <MenuOption text="Remove"></MenuOption>
-        <MenuOption text="Change"></MenuOption>
+        <MenuOption text="Remove" handler={() => {}}></MenuOption>
+        <MenuOption text="Change" handler={() => {}}></MenuOption>
     </Menu>
     {/if}
     
     <img src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false" on:keydown={() => {/* to get a11y to shut up */}} on:click={e => {
         showMenu = true;
-        mousePosition = [e.clientX, e.clientY]
+        mousePosition = [e.clientX, e.clientY];
+    }} on:contextmenu|preventDefault={e => {
+        showMenu = true;
+        mousePosition = [e.clientX, e.clientY];
     }}>
 
     <div class="input-group">
         <h1>Handle</h1>
         <p>Egestas sed tempus urna et pharetra.</p>
     </div>
-    <input type="text" disabled={true} placeholder="@bing-chilling">
+    <Tooltip text="Your handle cannot be changed.">
+        <input type="text" disabled={true} placeholder="@bing-chilling">
+    </Tooltip>
     
     <div class="input-group">
         <h1>Display name*</h1>
@@ -132,6 +139,15 @@
         to {
             opacity: 0%;
             transform: translateY(-50px);
+        }
+    }
+
+    @media only screen and (max-width: 420px) {
+        main {
+            width: 100vw;
+            height: fit-content;
+
+            border-radius: 0px;
         }
     }
 </style>

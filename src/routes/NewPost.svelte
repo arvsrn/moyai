@@ -2,6 +2,7 @@
     import { slide } from "svelte/transition";
     import { clickOutside } from "svelte-use-click-outside";
     import Notification from "./Notification.svelte";
+    import Tooltip from "./Tooltip.svelte";
     
     let active: boolean = false;
     let input: HTMLInputElement;
@@ -9,6 +10,7 @@
     let isViewing: boolean = false;
     let content: string = "";
     let anyoneCanReply: boolean = true;
+    let publishing: boolean = false;
 </script>
 
 <main>
@@ -30,7 +32,18 @@
         </p>
         <div style="margin-left: auto; display: flex; flex-direction: row; gap: 8px; height: fit-content; width: fit-content; align-items: center;">
             <p class:red={(512 - content.length) <= 100}>{512 - content.length}</p>
-            <button data-info="🚫 You must be signed in to post something.">Publish</button>
+            <Tooltip text="🚫 You must be signed in to post something.">
+                <button style="width: 62.45px; justify-content: center;" on:click={() => {
+                    publishing = true;
+                    setTimeout(() => publishing = false, 3000);
+                }}>
+                    {#if publishing}
+                    <div class="loader"></div>                
+                    {:else}
+                    Publish
+                    {/if}
+                </button>
+            </Tooltip>
         </div>
     </div>
 </main>
@@ -38,6 +51,26 @@
 <Notification bind:showing={showing}>✨ Sent!</Notification>
 
 <style>
+        
+    @keyframes donut-spin {
+        0% {
+        transform: rotate(0deg);
+        }
+        100% {
+        transform: rotate(360deg);
+        }
+    }
+
+    div.loader {
+        display: inline-block;
+        border: 3px solid rgba(255, 255, 255, 0.5);
+        border-left-color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        animation: donut-spin 1.2s linear infinite;
+    }
+
     main {
         width: 500px;
         height: fit-content;
@@ -94,6 +127,9 @@
         align-items: center;
         padding: 7px 12px;
         gap: 8px;
+
+        width: fit-content;
+        height: 30px;
 
         background: #0091FF;
         border-radius: 6px;

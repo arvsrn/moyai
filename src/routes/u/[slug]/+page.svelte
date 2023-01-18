@@ -1,7 +1,11 @@
 <script lang="ts">
+    import Blanket from "../../Blanket.svelte";
+    import EditProfile from "../../EditProfile.svelte";
     import Post from "../../Post.svelte";
 
     let following: boolean = false;
+    let isMe: boolean = true;
+    let showProfileSettingsPanel: boolean = false;
 </script>
 
 <main>
@@ -13,10 +17,14 @@
             <a href="/">aarv.me</a>
         </div>
         <div class="group horizontal">
+            {#if isMe}
+            <button on:click={() => showProfileSettingsPanel = true}>Edit</button>
+            {:else}
             <button class:following={following} on:click={() => following = !following}>
                 {following ? "Following" : "Follow"}
             </button>
             <button>Message</button>
+            {/if}
         </div>
         <div class="divider"></div>
         <div class="group">
@@ -24,6 +32,12 @@
         </div>
     </div>
 </main>
+
+{#if showProfileSettingsPanel}
+<Blanket bind:toggle={showProfileSettingsPanel}>
+    <EditProfile />
+</Blanket>
+{/if}
 
 <style>
     main {
@@ -125,7 +139,7 @@
     }
 
     @media only screen and (max-width: 540px) {
-        main {
+        div.container {
             width: 90vw;
         }
     }
