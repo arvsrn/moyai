@@ -17,6 +17,30 @@
                 <p>Lorem ipsum dolor sit amet</p>
             </div>
         </div>
+
+        <div class="chat" class:selected={selected == 2} on:click={() => selected = 2} on:keydown={() => {/* to get a11y to shut up */}}>
+            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <div class="information">
+                <h1>Aarav Sareen</h1>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
+
+        <div class="chat" class:selected={selected == 3} on:click={() => selected = 3} on:keydown={() => {/* to get a11y to shut up */}}>
+            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <div class="information">
+                <h1>Aarav Sareen</h1>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
+
+        <div class="chat" class:selected={selected == 4} on:click={() => selected = 4} on:keydown={() => {/* to get a11y to shut up */}}>
+            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <div class="information">
+                <h1>Aarav Sareen</h1>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
     </div>
     <div class="chats-open" on:click={() => clicked = true} on:keydown={() => {/* to get a11y to shut up */}}>
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>

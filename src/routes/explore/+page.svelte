@@ -30,11 +30,13 @@
 
         background-color: var(--gray1);
 
+        padding-bottom: 150px;
+
         overflow: auto;
     }
 
     div.fade {
-        position: absolute;
+        position: fixed;
         bottom: 0px;
         left: 0px;
         width: calc(100vw - 8px);
@@ -47,6 +49,12 @@
     @media only screen and (max-width: 540px) {
         main {
             padding-top: 5vw;
+        }
+    }
+
+    @media only screen and (max-height: 550px) {
+        div.fade {
+            display: none;
         }
     }
 </style>
