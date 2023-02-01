@@ -11,7 +11,7 @@
 </script>
 
 <main on:click|self={() => showInput = true} on:keydown={() => {}} use:clickOutside={() => showInput = false}>
-    <img on:click|self={() => showInput = true} class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+    <img on:click|self={() => location.assign('/u/amogus')} class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
     <p on:click|self={() => showInput = true}>Seeking Junior UI/UX designer opportunities in Europe. I am passionate about web accessibility and sustainable digital design ✨</p>
 
     <!--
@@ -49,7 +49,7 @@
         gap: 8px;
         
         background: var(--gray2);
-        border: 1px solid var(--gray4);
+        border: 1px solid var(--gray3);
         border-radius: 8px;
 
         cursor: pointer;
@@ -81,7 +81,7 @@
         border: 1px solid var(--gray4);
         position: relative;
         color: var(--gray10);
-        transition: color 0.1s cubic-bezier(.56,.38,0,.99);
+        transition: color 0.1s var(--ease);
         margin-top: 8px;
     }
 
@@ -134,12 +134,13 @@
         transform: translate(-50%, -50%);
         z-index: 100;
         box-shadow: 0px 4px 72px 1278px rgba(0, 0, 0, 0.25);
-        transition: width 0.1s cubic-bezier(.56,.38,0,.99);
+        transition: width 0.1s var(--ease);
     }
 
     @media only screen and (max-width: 540px) {
         main {
             width: 90vw;
+            min-width: 273px;
         }
     }
 </style>

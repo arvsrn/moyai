@@ -6,6 +6,8 @@
     import { onMount } from "svelte";
     import Menu from "./Menu.svelte";
     import MenuOption from "./MenuOption.svelte";
+    import { appdata } from "../store";
+    import { signIn } from "../app";
     
     let xTransform: number = 20;
     let width: number = 52;
@@ -38,16 +40,22 @@
     </div> 
 
     <div style="width: fit-content; height: fit-content; margin-left: auto; position: relative;">
-        <img src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false" on:click={() => showingMenu = true}>
-        {#if showingMenu}
-        <div style="position: absolute; right: 0px; top: 34px;">
-            <Menu onclose={() => showingMenu = false} >
-                <MenuOption text="Profile" handler={() => {
-                    window.location.assign('/u/amogus');
-                }}></MenuOption>
-                <MenuOption text="Log out" handler={() => {}}></MenuOption>
-            </Menu>
-        </div>
+        {#if $appdata.loggedIn}
+            <img src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false" on:click={() => showingMenu = true}>
+            {#if showingMenu}
+            <div style="position: absolute; right: 0px; top: 34px;">
+                <Menu onclose={() => showingMenu = false} >
+                    <MenuOption text="Profile" handler={() => {
+                        window.location.assign('/u/amogus');
+                    }}></MenuOption>
+                    <MenuOption text="Log out" handler={() => {
+                        appdata.set({ loggedIn: false })
+                    }}></MenuOption>
+                </Menu>
+            </div>
+            {/if}
+        {:else}
+            <button on:click={signIn}>Login</button>
         {/if}
     </div>
 
@@ -68,6 +76,36 @@
         gap: 14px;
 
         background: var(--gray1);
+    }
+
+    button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 7px 12px;
+        gap: 8px;
+
+        width: fit-content;
+        height: 30px;
+
+        background: #0091FF;
+        border-radius: 6px;
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 16px;
+
+        color: var(--gray12);
+        cursor: pointer;
+        outline: none;
+        border: none;
+
+        transition: transform 0.1s var(--ease);
+    }
+
+    button:active {
+        transform: scale(0.95);
     }
 
     img {
@@ -98,7 +136,7 @@
 
         color: var(--gray10);
         text-decoration: none;
-        transition: color 0.1s cubic-bezier(.56,.38,0,.99);
+        transition: color 0.1s var(--ease);
     }
 
     a.active {
@@ -124,7 +162,7 @@
         background-color: rgba(255, 255, 255, 0.05);
         border-radius: 4px;
 
-        transition: transform 0.1s cubic-bezier(.56,.38,0,.99), width 0.1s cubic-bezier(.56,.38,0,.99);
+        transition: transform 0.1s var(--ease), width 0.1s var(--ease);
         pointer-events: none;
     }
 

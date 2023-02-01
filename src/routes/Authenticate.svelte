@@ -61,7 +61,7 @@
         align-items: center;
         justify-content: center;
 
-        transition: border 0.1s cubic-bezier(.56,.38,0,.99), transform 0.1s cubic-bezier(.56,.38,0,.99)
+        transition: border 0.1s var(--ease), transform 0.1s var(--ease)
     }
 
     button:hover {

@@ -14,8 +14,7 @@
         width: 100vw;
         height: 100vh;
 
-        background: rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(14px);
+        background: rgba(0, 0, 0, 0.5);
 
         position: absolute;
         top: 0px;

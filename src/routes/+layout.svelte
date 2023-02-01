@@ -1,10 +1,16 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import Navigation from "./Navigation.svelte";
+
+    let mounted: boolean = false;
+    onMount(() => mounted = true);
 </script>
 
+{#if mounted}
 <Navigation></Navigation>
 
 <slot></slot>
+{/if}
 
 <!--
 <footer>

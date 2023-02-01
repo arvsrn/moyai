@@ -46,6 +46,10 @@
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
     </div>
     <div class="main-messages">
+        <div class="chat-info">
+            <img src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" class="profile" style="width: 32px; height: 32px;">
+            <h1 style="font-size: 14px; font-weight: 500;">Aarav Sareen</h1>
+        </div>
         <div class="messages">
             <div class="message">
                 <img class="message-profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
@@ -89,7 +93,9 @@
         flex-direction: row;
         align-items: center;
         cursor: pointer;
-        gap: 8px;
+        gap: 12px;
+        border-radius: 6px;
+        transition: background 0.2s var(--ease);
     }
 
     div.chat:hover {
@@ -134,7 +140,7 @@
 
     h1 {
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 500;
         color: var(--gray12);
         user-select: none;
     }
@@ -154,14 +160,15 @@
     
     div.chat-list {
         height: calc(100vh - 50px);
-        width: 300px;
+        width: 332px;
         border-left: 1px solid var(--gray3);
         background: var(--gray1);
 
         display: flex;
         flex-direction: column;
         
-        padding-top: 24px;
+        padding: 24px 16px;
+        gap: 2px;
     }
 
     div.chats-open {
@@ -203,8 +210,6 @@
     }
 
     div.selected {
-        border-top: 1px solid var(--gray3);
-        border-bottom: 1px solid var(--gray3);
         background: var(--gray2);
     }
 
@@ -234,14 +239,26 @@
         font-size: 13px;
 
         width: 100%;
-        height: 32px;
+        height: 40px;
 
         color: var(--gray12);
-        padding-left: 10px;
+        padding-left: 12px;
     }
 
     input::placeholder {
         color: var(--gray11);
+    }
+
+    div.chat-info {
+        width: 100%;
+        height: 48px;
+        padding-bottom: 16px; 
+        border-bottom: 1px solid var(--gray3);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
     }
 
     @media only screen and (max-width: 1000px) {

@@ -12,6 +12,10 @@
     font-family: Inter;
 }
 
+:root {
+    --ease: cubic-bezier(.56,.38,0,.99);
+}
+
 .light {
     --gray1: #FCFCFC;
     --gray2: #F8F8F8;

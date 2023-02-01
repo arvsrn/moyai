@@ -3,7 +3,6 @@
     import { slide } from "svelte/transition";
     import Menu from "./Menu.svelte";
     import MenuOption from "./MenuOption.svelte";
-    import Tooltip from "./Tooltip.svelte";
 
     let showMenu: boolean = false;
     let mousePosition: number[] = [0, 0];
@@ -29,9 +28,10 @@
         <h1>Handle</h1>
         <p>Egestas sed tempus urna et pharetra.</p>
     </div>
-    <Tooltip text="Your handle cannot be changed.">
+    <div class="input-group">
         <input type="text" disabled={true} placeholder="@bing-chilling">
-    </Tooltip>
+        <p class="tooltip">💡 Your handle cannot be changed.</p>
+    </div>
     
     <div class="input-group">
         <h1>Display name*</h1>
@@ -63,11 +63,19 @@
         padding: 24px;
 
         background: var(--gray1);
-        border: 1px solid var(--gray2);
         border-radius: 6px;
         overflow: hidden;
 
-        animation: enter .6s cubic-bezier(.56,.38,0,.99);
+        animation: enter .6s var(--ease);
+    }
+
+    @media only screen and (max-width: 400px) {
+        main {
+            width: 100vw !important;
+            height: calc(100vh - 50px) !important;
+            position: absolute;
+            bottom: 0px;
+        }
     }
 
     img {
@@ -97,6 +105,11 @@
         font-size: 13px;
         font-weight: normal;
         color: var(--gray11);
+    }
+
+    p.tooltip {
+        font-size: 11px;
+        color: var(--gray10);
     }
 
     input {

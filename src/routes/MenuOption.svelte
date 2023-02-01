@@ -65,11 +65,11 @@
         font-size: 13.25px;
         color: var(--gray12);
 
-        transition: background-color 0.05s cubic-bezier(.56,.38,0,.99);
+        transition: background-color 0.08s var(--ease);
     }
 
     main:hover {
-        background-color: var(--gray4);
+        background-color: var(--gray5);
     }
 
     span {

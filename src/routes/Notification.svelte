@@ -20,8 +20,8 @@
         transform: translateX(-50%);
         bottom: 20vh;
 
-        background-color: var(--gray12);
-        color: var(--gray1);
+        background-color: #0a0a0a;
+        color: var(--gray12);
 
         display: flex;
         flex-direction: row;
@@ -30,7 +30,7 @@
 
         font-size: 13px;
         animation: enter .2s ease-in;
-        transition: transform 0.2s cubic-bezier(.56,.38,0,.99);
+        transition: transform 0.2s var(--ease);
     }
 
     @keyframes enter {

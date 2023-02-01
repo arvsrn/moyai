@@ -1,14 +1,17 @@
 <script lang="ts">
+    import { appdata } from '../../store';
     import NewPost from '../NewPost.svelte';
     import Post from '../Post.svelte';
 </script>
 
 <main>
+    {#if $appdata.loggedIn}
     <NewPost></NewPost>
+    {/if}
+
     {#each [...Array(128).keys()] as _}
-    <Post />
+        <Post />
     {/each}
-    <div class="fade"></div>
 </main>
 
 <!--
@@ -35,26 +38,9 @@
         overflow: auto;
     }
 
-    div.fade {
-        position: fixed;
-        bottom: 0px;
-        left: 0px;
-        width: calc(100vw - 8px);
-        height: 150px;
-        
-        background: linear-gradient(180deg, rgba(249, 249, 249, 0) 0%, var(--gray1) 82.14%);
-        pointer-events: none;
-    }
-
     @media only screen and (max-width: 540px) {
         main {
             padding-top: 5vw;
-        }
-    }
-
-    @media only screen and (max-height: 550px) {
-        div.fade {
-            display: none;
         }
     }
 </style>

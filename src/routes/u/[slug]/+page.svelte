@@ -1,20 +1,63 @@
 <script lang="ts">
+    import { page } from "$app/stores";
     import Blanket from "../../Blanket.svelte";
     import EditProfile from "../../EditProfile.svelte";
     import Post from "../../Post.svelte";
 
+    import { doc, getDoc } from "firebase/firestore";
+    import { db } from "../../../app";
+    import Placeholder from "../../Placeholder.svelte";
     let following: boolean = false;
     let isMe: boolean = true;
     let showProfileSettingsPanel: boolean = false;
+
+    interface User {
+        about: string;
+        email: string;
+        handle: string;
+        name: string;
+        posts: string[];
+    }
+
+    const getUser = async (): Promise<User> => {
+        const docRef = doc(db, "users", $page.params.slug);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            // @ts-ignore
+            return docSnap.data();
+        }
+        else 
+            return Promise.reject(new Error("Bing chilling"))
+    };
 </script>
 
 <main>
+    {#await getUser()}
+    <div class="container">
+        <Placeholder style="width: 48px; height: 48px; border-radius: 24px;"></Placeholder>
+
+        <div class="group">
+            <Placeholder style="width: 150px; height: 20px;"></Placeholder>
+            <Placeholder style="width: 100%; height: 17px;"></Placeholder>
+            <Placeholder style="width: 80px; height: 17px;"></Placeholder>
+        </div>
+        <div class="group horizontal">
+            <Placeholder style="width: 60px; height: 38px; border-radius: 30px;"></Placeholder>
+            <Placeholder style="width: 100px; height: 38px; border-radius: 30px;"></Placeholder>
+        </div>
+        <div class="divider"></div>
+        <div class="group">
+            <Placeholder style="width: 100%; height: 114px; border-radius: 6px;"></Placeholder>
+        </div>
+    </div>
+    {:then user}
     <div class="container">
         <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
         <div class="group">
-            <h1>Aarav Sareen</h1>
-            <p>Egestas sed tempus urna et pharetra. Sit amet massa vitae tortor condimentum lacinia quis vel.</p>
-            <a href="/">aarv.me</a>
+            <h1>{user.name}</h1>
+            <p>{user.about}</p>
+            <a href="/">moyai.aarv.me</a>
         </div>
         <div class="group horizontal">
             {#if isMe}
@@ -31,6 +74,12 @@
             <Post></Post>
         </div>
     </div>
+    {:catch} 
+    <div class="container">
+        <h1>User not found.</h1>
+        <a href="/">Become {$page.params.slug}</a>
+    </div>
+    {/await}
 </main>
 
 {#if showProfileSettingsPanel}
@@ -126,7 +175,7 @@
         cursor: pointer;
         color: var(--gray12);
 
-        transition: transform 0.1s cubic-bezier(.56,.38,0,.99);
+        transition: transform 0.1s var(--ease);
     }
 
     button:active {
