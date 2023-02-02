@@ -1,7 +1,11 @@
+<script lang="ts">
+    import { signIn } from "../app";
+</script>
+
 <div class="login">
     <h1>Create a new profile ✨🗿</h1>  
     <p>If you don't have an account, one will be created automatically.</p>  
-    <button>
+    <button on:click={signIn}>
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.92 9.1875C16.92 8.6025 16.8675 8.04 16.77 7.5H9V10.695H13.44C13.245 11.7225 12.66 12.5925 11.7825 13.1775V15.255H14.46C16.02 13.815 16.92 11.7 16.92 9.1875Z" fill="#4285F4"/>
             <path d="M8.99977 17.2502C11.2273 17.2502 13.0948 16.5152 14.4598 15.2552L11.7823 13.1777C11.0473 13.6727 10.1098 13.9727 8.99977 13.9727C6.85477 13.9727 5.03227 12.5252 4.37977 10.5752H1.63477V12.7052C2.99227 15.3977 5.77477 17.2502 8.99977 17.2502Z" fill="#34A853"/>
