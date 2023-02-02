@@ -1,11 +1,12 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { dev } from '$app/environment';
     import { inject } from "@vercel/analytics";
     import Navigation from "./Navigation.svelte";
 
     let mounted: boolean = false;
     onMount(() => mounted = true);
-    inject({ mode: 'development' })
+    inject({ mode: dev ? 'development' : 'production' })
 </script>
 
 {#if mounted}
