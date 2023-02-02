@@ -21,10 +21,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/analytics": "^0.1.8",
 		"firebase": "^9.16.0",
 		"radix-icons-svelte": "^1.2.1",
 		"svelte-local-storage-store": "^0.4.0",
 		"svelte-use-click-outside": "^1.0.0",
-		"uuid": "^9.0.0"
+		"uuid": "^9.0.0",
+		"vercel": "^28.15.0"
 	}
 }
