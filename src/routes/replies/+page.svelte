@@ -1,11 +1,14 @@
 <script lang="ts">
+    import { appdata } from "../../store";
     import { clickOutside } from "svelte-use-click-outside";
-
+    import Authenticate from "../Authenticate.svelte";
+    import Blanket from "../Blanket.svelte";
 
     let selected: number = 0;
     let clicked: boolean = false;
 </script>
 
+{#if $appdata.loggedIn}
 <main>
     <div class="chat-list" class:sticky={clicked} use:clickOutside={() => {
         if (clicked) clicked = false;
@@ -69,6 +72,12 @@
         <input type="text" placeholder="Send a message..." />
     </div>
 </main>
+{:else}
+<main></main>
+<Blanket toggle={true}>
+    <Authenticate></Authenticate>
+</Blanket>
+{/if}
 
 <style>
     main {
