@@ -2,6 +2,46 @@
     import { slide } from "svelte/transition";
     import { clickOutside } from "svelte-use-click-outside";
     import Notification from "./Notification.svelte";
+    import Carousel from "./Carousel.svelte";
+
+    let posts: Array<{
+        by: string,
+        content: string,
+        attachments: string[],
+    }> = [
+        {
+            by: 'amogus',
+            content: "Maybe the benefit of a real-world metaphor in interface design is not that it gives someone a familiar reference, but that it encourages the designer to structure the interface logically. Maybe any logical structure will help someone become familiar?",
+            attachments: ['https://cdn.discordapp.com/attachments/1023648332750520341/1070723261614276608/ssstwitter.com_1675350700175.mp4', 'https://pbs.twimg.com/media/Fn3-4aTWIAA1Eok?format=jpg&name=small', 'https://cdn.discordapp.com/attachments/1023648332750520341/1071007296353747015/ssstwitter.com_1675418403867.mp4'],
+        },
+        {
+            by: 'amogus',
+            content: "The temperature at which water boils depends on pressure. You can demonstrate this by dramatically lowering the pressure on a water-filled plastic syringe at room temperature.",
+            attachments: [],
+        },
+        {
+            by: 'amogus',
+            content: "I've been working on a project for the last few weeks. <br><br> It's still young and has rough edges, but this is the first output of a GraphQL linter, fully implemented in Rust and fully extensible with scripts. <br><br> Might be the first tool with potential I ever open-source. 💛",
+            attachments: [],
+        },
+        {
+            by: 'amogus',
+            content: "Most time management problems resolve themselves when you find something you believe is important.",
+            attachments: [],
+        }
+    ];
+
+    let profilePicture = [
+        'https://cdn.discordapp.com/attachments/1023648332750520341/1070717439022727258/image.png',
+        'https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png',
+        'https://cdn.discordapp.com/attachments/1023648332750520341/1070717458962456706/image.png'
+    ][Math.floor(Math.random() * 3)];
+
+    let post: {
+        by: string,
+        content: string,
+        attachments: string[],
+    } = posts[Math.floor(Math.random() * posts.length)];
     
     let active: boolean = false;
     let showInput: boolean = false;
@@ -11,8 +51,12 @@
 </script>
 
 <main on:click|self={() => showInput = true} on:keydown={() => {}} use:clickOutside={() => showInput = false}>
-    <img on:click|self={() => location.assign('/u/amogus')} class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
-    <p on:click|self={() => showInput = true}>Seeking Junior UI/UX designer opportunities in Europe. I am passionate about web accessibility and sustainable digital design ✨</p>
+    <img on:click|self={() => location.assign('/u/' + post.by)} class="profile" src="{profilePicture}" alt="" draggable="false">
+    <p on:click|self={() => showInput = true}>{@html post.content}</p>
+
+    {#if post.attachments.length > 0} 
+        <Carousel attachments={post.attachments}></Carousel>
+    {/if}
 
     <!--
     <img class="attachment" class:view={isViewing} src="https://images.unsplash.com/photo-1611651338412-8403fa6e3599?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cG9yc2NoZSUyMDkxMXxlbnwwfHwwfHw%3D&w=1000&q=80" alt="" on:click={() => isViewing = true} use:clickOutside={() => isViewing = false}>

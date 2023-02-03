@@ -13,7 +13,7 @@
 </script>
 
 <main>
-    <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+    <img class="profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
     <textarea spellcheck={false} bind:value={content} placeholder="What's haunting thy mind?" maxlength="512"></textarea>
     <div style="width: 100%; display: flex; flex-direction: row; align-items: center;">
         <div style="margin-left: auto; display: flex; flex-direction: row; gap: 8px; height: fit-content; width: fit-content; align-items: center;">

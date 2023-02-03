@@ -14,7 +14,7 @@
         if (clicked) clicked = false;
     }}>
         <div class="chat" class:selected={selected == 1} on:click={() => selected = 1} on:keydown={() => {/* to get a11y to shut up */}}>
-            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <img class="profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
             <div class="information">
                 <h1>Aarav Sareen</h1>
                 <p>Lorem ipsum dolor sit amet</p>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="chat" class:selected={selected == 2} on:click={() => selected = 2} on:keydown={() => {/* to get a11y to shut up */}}>
-            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <img class="profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
             <div class="information">
                 <h1>Aarav Sareen</h1>
                 <p>Lorem ipsum dolor sit amet</p>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="chat" class:selected={selected == 3} on:click={() => selected = 3} on:keydown={() => {/* to get a11y to shut up */}}>
-            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <img class="profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
             <div class="information">
                 <h1>Aarav Sareen</h1>
                 <p>Lorem ipsum dolor sit amet</p>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="chat" class:selected={selected == 4} on:click={() => selected = 4} on:keydown={() => {/* to get a11y to shut up */}}>
-            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <img class="profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
             <div class="information">
                 <h1>Aarav Sareen</h1>
                 <p>Lorem ipsum dolor sit amet</p>
@@ -50,19 +50,19 @@
     </div>
     <div class="main-messages">
         <div class="chat-info">
-            <img src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" class="profile" style="width: 32px; height: 32px;">
+            <img src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" class="profile" style="width: 32px; height: 32px;">
             <h1 style="font-size: 14px; font-weight: 500;">Aarav Sareen</h1>
         </div>
         <div class="messages">
             <div class="message">
-                <img class="message-profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+                <img class="message-profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
                 <div class="message-inner">
                     <p>Hello, world!</p>
                     <p>Egestas sed tempus urna et pharetra. Sit amet massa vitae tortor condimentum lacinia quis vel.</p>
                 </div>
             </div>
             <div class="message">
-                <img class="message-profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+                <img class="message-profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
                 <div class="message-inner">
                     <p>Hello, world!</p>
                     <p>Egestas sed tempus urna et pharetra. Sit amet massa vitae tortor condimentum lacinia quis vel.</p>

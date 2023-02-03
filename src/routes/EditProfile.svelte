@@ -16,7 +16,7 @@
     </Menu>
     {/if}
     
-    <img src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false" on:keydown={() => {/* to get a11y to shut up */}} on:click={e => {
+    <img src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false" on:keydown={() => {/* to get a11y to shut up */}} on:click={e => {
         showMenu = true;
         mousePosition = [e.clientX, e.clientY];
     }} on:contextmenu|preventDefault={e => {

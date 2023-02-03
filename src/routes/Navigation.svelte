@@ -41,7 +41,7 @@
 
     <div style="width: fit-content; height: fit-content; margin-left: auto; position: relative;">
         {#if $appdata.loggedIn}
-            <img src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false" on:click={() => showingMenu = true}>
+            <img src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false" on:click={() => showingMenu = true}>
             {#if showingMenu}
             <div style="position: absolute; right: 0px; top: 34px;">
                 <Menu onclose={() => showingMenu = false} >

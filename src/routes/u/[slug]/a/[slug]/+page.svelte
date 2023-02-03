@@ -5,7 +5,7 @@
 <main>
     <div class="container">
         <div class="profile">
-            <img class="profile" src="https://pbs.twimg.com/profile_images/1605129734697807872/vHWN2RtV_400x400.png" alt="" draggable="false">
+            <img class="profile" src="https://cdn.discordapp.com/attachments/1023648332750520341/1070714671650312252/image.png" alt="" draggable="false">
             <p>Aarav Sareen</p>
         </div>
         <div class="container-container">
